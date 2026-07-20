@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+*.key
+*.pem
+wallets.json
+credentials.*
+daemon/
+private/

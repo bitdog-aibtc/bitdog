@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-07-20T17:22:25.543Z",
+  "receipt_count": 101,
+  "unique_txids": 98,
+  "successful_txs": 97,
+  "aborted_txs": 1,
+  "no_tx_receipts": 3,
+  "campaigns": [
+    {
+      "campaign_id": "HODLMM-DLMM6-20260604-001",
+      "receipts": 89,
+      "broadcasts": 88,
+      "successful_txs": 88,
+      "aborted_txs": 0,
+      "no_tx_receipts": 1
+    },
+    {
+      "campaign_id": "HODLMM-DLMM6-20260709-002",
+      "receipts": 1,
+      "broadcasts": 0,
+      "successful_txs": 0,
+      "aborted_txs": 0,
+      "no_tx_receipts": 1
+    },
+    {
+      "campaign_id": "HODLMM-DLMM6-20260709-003",
+      "receipts": 11,
+      "broadcasts": 10,
+      "successful_txs": 9,
+      "aborted_txs": 1,
+      "no_tx_receipts": 1
+    }
+  ]
+}
