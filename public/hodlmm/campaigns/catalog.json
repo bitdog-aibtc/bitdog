@@ -60,6 +60,16 @@
         "pool": "dlmm_6",
         "relative_bin_offsets": [-1, 0, 1]
       },
+      "limits": {
+        "duration_days_from_entry": 7,
+        "entry_gas_cap_stx": 0.25,
+        "campaign_gas_budget_stx": 0.75,
+        "minimum_liquid_stx_reserve": 5,
+        "maximum_recenters": 6,
+        "write_cooldown_hours": 4,
+        "halt_after_failed_write_branches": 1,
+        "automatic_exit": false
+      },
       "entry_gates": {
         "campaign_003_boundary": "reconciled_closed_for_new_risk",
         "residual_transition": "withdraw_preflight_passed_waiting_market_gates",

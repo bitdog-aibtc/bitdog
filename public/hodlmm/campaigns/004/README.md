@@ -26,6 +26,19 @@ public scope but contains no approval phrase, signer material, credential, or wa
   residual value.
 - No wider range, extra pool, extra capital, blind recenter, or open-ended gas authority is implied.
 
+## Public risk envelope
+
+- Duration: seven days starting only after the first LP deposit confirms.
+- Entry gas cap: 0.25 STX; full campaign gas budget: 0.75 STX.
+- Minimum liquid reserve after entry: 5 STX.
+- Maximum recenters: 6, with a four-hour write cooldown.
+- One failed write branch halts the campaign.
+- Automatic exit is disabled.
+
+The 5 STX reserve is a deliberate part of the bolder scope. Keeping the previous 10 STX reserve would
+reduce the no-top-up LP ceiling to about US$39.22 under the conservative entry calculation. The wallet
+still has to satisfy the 5 STX floor after fresh fees, withdrawal output, and the final deposit sizing.
+
 ## Current entry gates
 
 | Gate | State | Public evidence rule |

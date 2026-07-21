@@ -24,6 +24,9 @@ test('armed campaign remains unopened and signer-disarmed while entry gates are 
   assert.equal(armed.capital.ceiling_usd, 40);
   assert.equal(armed.capital.moved_usd, 0);
   assert.deepEqual(armed.strategy.relative_bin_offsets, [-1, 0, 1]);
+  assert.equal(armed.limits.minimum_liquid_stx_reserve, 5);
+  assert.equal(armed.limits.entry_gas_cap_stx, 0.25);
+  assert.equal(armed.limits.halt_after_failed_write_branches, 1);
   assert.equal(armed.entry_gates.volume_24h_usd_minimum, 10000);
   assert.equal(armed.entry_gates.withdraw_simulation, 'passed');
   assert.equal(armed.entry_gates.signer, 'disarmed');
