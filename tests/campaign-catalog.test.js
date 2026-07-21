@@ -15,12 +15,19 @@ test('published campaign receipt counts match the ledger summary', () => {
   }
 });
 
-test('draft campaign has no authority or receipts', () => {
-  const draft = catalog.campaigns.find(item => item.number === '004');
-  assert.equal(draft.status, 'draft_not_authorized');
-  assert.equal(draft.opened_at, null);
-  assert.equal(draft.result, null);
-  assert.deepEqual(draft.receipts, { total: 0, broadcast: 0, success: 0, abort: 0, no_tx: 0 });
+test('armed campaign remains unopened and signer-disarmed while entry gates are unmet', () => {
+  const armed = catalog.campaigns.find(item => item.number === '004');
+  assert.equal(armed.campaign_id, 'HODLMM-DLMM6-20260720-004');
+  assert.equal(armed.status, 'armed_waiting_entry');
+  assert.equal(armed.opened_at, null);
+  assert.equal(armed.result, null);
+  assert.equal(armed.capital.ceiling_usd, 40);
+  assert.equal(armed.capital.moved_usd, 0);
+  assert.deepEqual(armed.strategy.relative_bin_offsets, [-1, 0, 1]);
+  assert.equal(armed.entry_gates.volume_24h_usd_minimum, 10000);
+  assert.equal(armed.entry_gates.withdraw_simulation, 'passed');
+  assert.equal(armed.entry_gates.signer, 'disarmed');
+  assert.deepEqual(armed.receipts, { total: 1, broadcast: 0, success: 0, abort: 0, no_tx: 1 });
 });
 
 test('catalog refuses an aggregate result across overlapping campaign boundaries', () => {

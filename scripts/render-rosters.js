@@ -17,6 +17,7 @@ const campaignDirs = {
   'HODLMM-DLMM6-20260604-001': '001',
   'HODLMM-DLMM6-20260709-002': '002',
   'HODLMM-DLMM6-20260709-003': '003',
+  'HODLMM-DLMM6-20260720-004': '004',
 };
 
 function explorer(txid) {
@@ -56,7 +57,7 @@ for (const [campaignId, dir] of Object.entries(campaignDirs)) {
     ].join(' | ').replace(/^/, '| ').replace(/$/, ' |'));
   }
 
-  lines.push('', `Receipts: **${items.length}** · Broadcast txs: **${items.filter(item => item.broadcast).length}** · No-tx receipts: **${items.filter(item => !item.broadcast).length}**`, '');
+  lines.push('', `Receipts: **${items.length}** · Broadcast txs: **${items.filter(item => item.broadcast).length}** · No-tx receipts: **${items.filter(item => !item.broadcast).length}**`);
   const target = path.join(root, 'public', 'hodlmm', 'campaigns', dir, 'transaction-roster.md');
   fs.writeFileSync(target, `${lines.join('\n')}\n`);
 }
