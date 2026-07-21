@@ -5,10 +5,12 @@
   "description": "BITDOG public operating record: auditable Bitflow HODLMM campaigns, receipts, lessons, and read-only tooling.",
   "license": "MIT",
   "scripts": {
+    "audit:public": "node scripts/audit-publication.js",
     "build:ledger": "node scripts/build-ledger.js",
     "render:rosters": "node scripts/render-rosters.js",
     "verify:ledger": "node scripts/verify-ledger.js",
     "live:position": "node scripts/bitflow_position.js",
+    "monitor:public": "node scripts/public-monitor.js",
     "check:links": "node scripts/check-links.js",
     "test": "node --test tests/*.test.js"
   },

@@ -10,6 +10,12 @@ Bitflow `dlmm_6` STX/sBTC pool.
 3. [Ledger and verification](ledger/README.md)
 4. [Lessons](knowledge/lessons.md)
 5. [Runbooks](runbooks/README.md)
+6. [Disclosure review](knowledge/disclosure-review-2026-07-20.md)
+7. [Public schemas](schemas/)
+
+The public monitor is intentionally weaker than the private operational system: it reads public state,
+evaluates terminal gates, and can only return a hold, a halt, or a recommendation for a separately
+authorized dry-run. Run it with `npm run monitor:public`.
 
 ## Accounting rules
 

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "campaign_id": "HODLMM-DLMM6-20260709-003",
+  "wallet": "SP178SWBKE4YRKPMPBTFP359DMBT025ZC48QEG7HB",
+  "pool": "SM1FKXGNZJWSTWDWXQZJNF7B5TV5ZB235JTCXYXKD.dlmm-pool-stx-sbtc-v-1-bps-15",
+  "status": "ended",
+  "opened_at": "2026-07-10T00:00:00.000Z",
+  "end_at": "2026-07-20T00:00:00.000Z",
+  "limits": {
+    "gas_budget_stx": 0.5,
+    "write_cooldown_hours": 4,
+    "max_recenters": 10,
+    "reserve_floor_stx": 10,
+    "failed_write_halt_threshold": 1
+  },
+  "gas": {
+    "spent_stx": 0.5
+  },
+  "write_halt": {
+    "active": true,
+    "reason": "paid_abort_pending_safety_review"
+  },
+  "publication_note": "Historical, non-authorizing example. Public files never grant execution authority."
+}

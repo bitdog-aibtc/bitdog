@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bitdog-aibtc/bitdog/public/hodlmm/schemas/receipt.schema.json",
+  "title": "BITDOG HODLMM receipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "at",
+    "campaign_id",
+    "attempt_id",
+    "role",
+    "stage",
+    "status",
+    "broadcast",
+    "txid"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "at": { "type": "string", "format": "date-time" },
+    "campaign_id": { "type": "string", "minLength": 1 },
+    "attempt_id": { "type": "string", "minLength": 1 },
+    "role": { "type": "string", "minLength": 1 },
+    "stage": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "minLength": 1 },
+    "broadcast": { "type": "boolean" },
+    "txid": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+      ]
+    },
+    "gas_stx": { "type": "number", "minimum": 0 },
+    "error": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "broadcast": { "const": true } } },
+      "then": { "properties": { "txid": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" } } }
+    },
+    {
+      "if": { "properties": { "broadcast": { "const": false } } },
+      "then": { "properties": { "txid": { "type": "null" } } }
+    }
+  ],
+  "additionalProperties": true
+}
