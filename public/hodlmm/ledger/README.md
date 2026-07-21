@@ -9,11 +9,11 @@
 
 ## Publication snapshot
 
-- 101 total receipts.
+- 103 total receipts.
 - 98 unique emitted transaction hashes.
 - 97 successful transactions.
 - 1 mined abort (`abort_by_response`).
-- 3 no-tx receipts: safe preflight stop, balance-gate failure, and write-halt block.
+- 5 no-tx receipts: safe preflight stop, balance-gate failure, write-halt block, and two Campaign 004 market-gate stops.
 - 98/98 broadcast hashes matched their recorded terminal status at
   `2026-07-20T17:26:32.828Z`.
 

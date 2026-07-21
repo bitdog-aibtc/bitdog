@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "published_at": "2026-07-21T00:00:00.000Z",
+  "published_at": "2026-07-21T01:26:39.304Z",
   "wallet": "SP178SWBKE4YRKPMPBTFP359DMBT025ZC48QEG7HB",
   "pool": "SM1FKXGNZJWSTWDWXQZJNF7B5TV5ZB235JTCXYXKD.dlmm-pool-stx-sbtc-v-1-bps-15",
   "aggregate_result": null,
@@ -45,14 +45,48 @@
     },
     {
       "number": "004",
-      "campaign_id": "HODLMM-DLMM6-DRAFT-004",
-      "status": "draft_not_authorized",
+      "campaign_id": "HODLMM-DLMM6-20260720-004",
+      "status": "armed_waiting_entry",
+      "authorized_local_date": "2026-07-20",
       "opened_at": null,
       "terminal_at": null,
       "result": null,
-      "receipts": { "total": 0, "broadcast": 0, "success": 0, "abort": 0, "no_tx": 0 },
+      "capital": {
+        "ceiling_usd": 40,
+        "basis": "total_entry_value_including_campaign_003_residual",
+        "moved_usd": 0
+      },
+      "strategy": {
+        "pool": "dlmm_6",
+        "relative_bin_offsets": [-1, 0, 1]
+      },
+      "limits": {
+        "duration_days_from_entry": 7,
+        "entry_gas_cap_stx": 0.25,
+        "campaign_gas_budget_stx": 0.75,
+        "minimum_liquid_stx_reserve": 5,
+        "maximum_recenters": 6,
+        "write_cooldown_hours": 4,
+        "halt_after_failed_write_branches": 1,
+        "automatic_exit": false
+      },
+      "entry_gates": {
+        "campaign_003_boundary": "reconciled_closed_for_new_risk",
+        "residual_transition": "withdraw_preflight_passed_waiting_market_gates",
+        "volume_24h_usd_minimum": 10000,
+        "volume_gate": "waiting_below_minimum",
+        "second_confirmation": "passed_2_of_2",
+        "second_confirmation_at": "2026-07-21T01:25:51.410Z",
+        "latest_divergence_pct": 0.1307,
+        "latest_volume_24h_usd": 3581.32,
+        "withdraw_simulation": "passed",
+        "swap_plan": "passed",
+        "deposit_simulation": "deferred_until_actual_post_swap_balance",
+        "signer": "disarmed"
+      },
+      "receipts": { "total": 2, "broadcast": 0, "success": 0, "abort": 0, "no_tx": 2 },
       "report": "004/README.md",
-      "roster": null
+      "roster": "004/transaction-roster.md"
     }
   ]
 }

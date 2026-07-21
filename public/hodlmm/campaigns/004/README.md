@@ -1,48 +1,71 @@
-# Campaign 004 — draft only, no authority
+# Campaign 004 — armed, waiting for entry gates
 
-**ID:** `HODLMM-DLMM6-DRAFT-004`
-**Candidate pool:** Bitflow `dlmm_6` STX/sBTC
-**Status:** `draft_not_authorized`
-**Capital authorized:** zero
-**Gas authorized:** zero
-**Wallet state:** must remain locked
+- **ID:** `HODLMM-DLMM6-20260720-004`
+- **Pool:** Bitflow `dlmm_6` STX/sBTC
+- **Operator scope date:** 2026-07-20
+- **Status:** `ARMED / WAITING_ENTRY`
+- **LP capital ceiling at entry:** US$40 total
+- **Capital moved:** US$0
+- **Transactions and gas:** no hash emitted; 0 STX spent
+- **Wallet state:** remains locked while entry gates are unmet
 
-This is a public design document, not an executable campaign. It contains no approval phrase and grants
-no permission to unlock, sign, move residual DLP, swap, deposit, withdraw, or spend gas.
+`ARMED` means the operator approved a bounded capital target and range shape. It does **not** mean the
+campaign is open or funded. Campaign 003 is closed for new risk; its old abort was reconciled without a
+blind retry, and its residual remains on-chain until the new entry gates pass. This page records the
+public scope but contains no approval phrase, signer material, credential, or wallet-access authority.
 
-## Why a draft exists
+## Authorized strategy
 
-Campaign 003 ended with residual DLP and a paid `u1022` abort. Starting another numbered campaign
-without resolving that boundary would repeat the accounting and execution mistakes already documented.
-The draft makes the missing prerequisites visible before any capital discussion.
+- Use the existing Bitflow `dlmm_6` STX/sBTC pool only.
+- Target the three relative bins `-1`, `0`, and `+1` around the active bin read immediately before
+  entry. This is intentionally more concentrated, and therefore more exposed to moving out of range.
+- Cap the total LP value at entry at **US$40**. The live-mark value of any Campaign 003 residual that
+  transitions into Campaign 004 counts inside that ceiling; it cannot be counted twice or treated as
+  an additional US$40.
+- New capital, if any, is limited to the difference between the US$40 ceiling and the freshly marked
+  residual value.
+- No wider range, extra pool, extra capital, blind recenter, or open-ended gas authority is implied.
 
-## Mandatory entry gates
+## Public risk envelope
 
-All gates must pass in a fresh private execution scope. Publication cannot satisfy them.
+- Duration: seven days starting only after the first LP deposit confirms.
+- Entry gas cap: 0.25 STX; full campaign gas budget: 0.75 STX.
+- Minimum liquid reserve after entry: 5 STX.
+- Maximum recenters: 6, with a four-hour write cooldown.
+- One failed write branch halts the campaign.
+- Automatic exit is disabled.
 
-1. **Residual decision:** explicitly close Campaign 003 to zero DLP or document a new residual
-   transition without double counting.
-2. **Failure resolution:** reproduce or explain the strict-withdraw `u1022` path using read-only state
-   and simulation; the existing write halt remains dominant until then.
-3. **Clean chain state:** reconcile all known hashes and prove no pending or unknown transaction can
-   conflict with the next nonce.
-4. **Fresh market state:** re-read active bin, user bins, DLP, balances, pool status, and independent
-   price divergence immediately before planning.
-5. **New private charter:** operator must define capital ceiling, gas cap, reserve floor, duration,
-   cooldown, recenter cap, exit rule, and failure threshold outside this repository.
-6. **Simulation:** every proposed withdraw, deposit, or swap must have current bounded outputs and
-   postconditions before wallet access.
-7. **Signer isolation:** only one approved branch may reach a signer; public files remain incapable of
-   execution.
+The 5 STX reserve is a deliberate part of the bolder scope. Keeping the previous 10 STX reserve would
+reduce the no-top-up LP ceiling to about US$39.22 under the conservative entry calculation. The wallet
+still has to satisfy the 5 STX floor after fresh fees, withdrawal output, and the final deposit sizing.
 
-## Candidate objective
+## Current entry gates
 
-Test whether a smaller, explicitly bounded STX/sBTC range can beat holding after gas while preserving a
-clean campaign boundary. This objective is provisional and carries no allocation.
+| Gate | State | Public evidence rule |
+|---|---|---|
+| Campaign 003 boundary | **RECONCILED** | Campaign 003 is closed for new risk. Its `u1022` abort was not retried blindly, and the residual is explicitly assigned to this transition. |
+| Residual withdrawal preflight | **PASS** | The canonical multi-bin withdrawal passed a fresh read-only simulation; 42,901 DLP remains on-chain because no write is allowed while the market gates are unmet. |
+| 24-hour pool volume | **WAITING** | The latest entry check was US$3,581.32, below the US$10,000 minimum. No entry while the fresh 24-hour value remains below that threshold. |
+| Second confirmation | **PASS** | Two out-of-range reads were separated by more than 15 minutes; the second retained zero pending transactions and 0.1307% price divergence. |
+| Simulation and postconditions | **PARTIAL PASS** | Withdrawal simulation and the 120 STX prep-swap plan passed. The exact three-bin deposit simulation waits for the actual post-swap sBTC balance. |
+| Signer isolation | **DISARMED** | The wallet stays locked until every preceding gate passes in one fresh private execution scope. |
 
-## Promotion rule
+The fresh read at 2026-07-21T01:06:26Z reported 42,901 residual DLP, estimated at 15.088571 STX and
+zero sats, 26 bins away from the active bin. It is a planning mark, not a realized withdrawal amount.
 
-The ID must lose the `DRAFT` marker only after all prerequisites are documented and a new private scope
-exists. If the gates do not pass, the correct terminal outcome is `not_launched` with a no-tx receipt.
+## Entry transition
 
-Not financial advice. Draft publication is not transaction approval.
+Campaign 004 can move from `WAITING_ENTRY` to `LIVE` only after all of the following are true:
+
+1. Campaign 003's residual withdrawal reaches a terminal chain result under the already reconciled boundary.
+2. The fresh 24-hour pool volume is at or above US$10,000.
+3. A final just-in-time read still agrees with the two completed confirmation scans and the simulations.
+4. The total marked LP input, including transitioned residual value, does not exceed US$40.
+5. The first Campaign 004 deposit reaches terminal `success` and receives a receipt with its tx hash,
+   fee, role, and post-entry range.
+
+Until then, `opened_at` remains null. The [receipt roster](transaction-roster.md) contains two no-tx
+market-gate receipts, and the honest status is `armed_waiting_entry`: authorized terms, no transaction
+attempt, no txid, and no gas.
+
+Not financial advice. Public documentation is evidence, not transaction authority.
