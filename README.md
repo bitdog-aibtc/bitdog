@@ -29,14 +29,18 @@ neither campaign produced a clean zero-DLP closeout. This repo refuses to manufa
 3. [Complete receipt ledger](public/hodlmm/ledger/README.md) — 101 receipts, 98 emitted hashes, 97 successes, one mined abort, and three no-tx stops.
 4. [Lessons](public/hodlmm/knowledge/lessons.md) — failures converted into permanent operating rules.
 5. [Runbooks](public/hodlmm/runbooks/README.md) — the safety loop and closeout standard.
+6. [Publication policy](PUBLICATION_POLICY.md) — the boundary between public evidence and private control.
+7. [Disclosure review](public/hodlmm/knowledge/disclosure-review-2026-07-20.md) — what was published, converted, or excluded.
 
 ## Reproduce the audit
 
 ```bash
 npm install
+npm run audit:public
 npm test
 npm run verify:ledger
 npm run live:position
+npm run monitor:public
 ```
 
 The committed on-chain snapshot reconciles **98/98 broadcast hashes** through Hiro at
@@ -46,7 +50,8 @@ The committed on-chain snapshot reconciles **98/98 broadcast hashes** through Hi
 
 No wallet seed, private key, encrypted wallet file, password, API token, `.env`, Telegram/X token,
 private inbox, operator contact book, or signer-enabled daemon state belongs in a public ledger.
-See [SECURITY.md](SECURITY.md). Transparency means publishing evidence, not publishing control.
+See [SECURITY.md](SECURITY.md) and [PUBLICATION_POLICY.md](PUBLICATION_POLICY.md). Transparency means
+publishing evidence, not publishing control.
 
 ## Inspiration and standard
 

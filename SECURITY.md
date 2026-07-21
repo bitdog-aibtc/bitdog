@@ -16,6 +16,14 @@ The private `dogbot` workspace remains the operational system. This public repos
 evidence layer. It intentionally omits the live signer/executor while a documented strict-withdraw
 safety review remains open.
 
+## Automated release check
+
+Run `npm run audit:public` before every commit. It rejects prohibited runtime paths, recognizable
+credential formats, non-empty secret assignments, signer calls, mutating HTTP calls, and matching
+material already present in Git history. The scanner permits the documented Hiro Clarity read-only
+POST and no other POST. See [PUBLICATION_POLICY.md](PUBLICATION_POLICY.md) for the human-review boundary
+that complements the scanner.
+
 ## Reporting
 
 Open a GitHub issue without including a secret. If a secret has already been exposed, revoke or rotate
