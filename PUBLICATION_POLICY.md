@@ -41,6 +41,7 @@ Every public commit must pass:
 npm run audit:public
 npm test
 npm run check:links
+npm run verify:manifest
 npm run verify:ledger
 ```
 

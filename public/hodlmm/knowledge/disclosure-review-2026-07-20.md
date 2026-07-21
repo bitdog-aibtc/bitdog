@@ -13,6 +13,7 @@ rebuilt into a separate checkout with a deny-by-default boundary.
 - read-only position lookup and Hiro ledger reconciliation;
 - a fail-closed public monitor that cannot unlock, sign, write state, or broadcast;
 - receipt and campaign schemas, tests, runbooks, lessons, and publication controls.
+- a machine-readable campaign catalog, non-authorizing Campaign 004 draft, and SHA-256 proof manifest.
 
 ## Converted instead of copied
 
