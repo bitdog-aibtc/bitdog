@@ -7,11 +7,13 @@
   "scripts": {
     "audit:public": "node scripts/audit-publication.js",
     "build:ledger": "node scripts/build-ledger.js",
+    "build:manifest": "node scripts/build-manifest.js",
     "render:rosters": "node scripts/render-rosters.js",
     "verify:ledger": "node scripts/verify-ledger.js",
     "live:position": "node scripts/bitflow_position.js",
     "monitor:public": "node scripts/public-monitor.js",
     "check:links": "node scripts/check-links.js",
+    "verify:manifest": "node scripts/verify-manifest.js",
     "test": "node --test tests/*.test.js"
   },
   "dependencies": {

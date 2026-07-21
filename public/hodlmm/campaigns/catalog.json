@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "published_at": "2026-07-21T00:00:00.000Z",
+  "wallet": "SP178SWBKE4YRKPMPBTFP359DMBT025ZC48QEG7HB",
+  "pool": "SM1FKXGNZJWSTWDWXQZJNF7B5TV5ZB235JTCXYXKD.dlmm-pool-stx-sbtc-v-1-bps-15",
+  "aggregate_result": null,
+  "aggregate_result_reason": "Campaign 003 inherited residual Campaign 001 assets; neither boundary is a clean zero-DLP closeout.",
+  "campaigns": [
+    {
+      "number": "001",
+      "campaign_id": "HODLMM-DLMM6-20260604-001",
+      "status": "accounting_closed_by_residual_transition",
+      "opened_at": "2026-06-04T21:14:00.000Z",
+      "terminal_at": "2026-07-10T00:00:00.000Z",
+      "result": {
+        "basis": "mark_to_market_vs_hold_after_gas",
+        "net_usd": -34.2,
+        "realized": false
+      },
+      "receipts": { "total": 89, "broadcast": 88, "success": 88, "abort": 0, "no_tx": 1 },
+      "report": "001/README.md",
+      "roster": "001/transaction-roster.md"
+    },
+    {
+      "number": "002",
+      "campaign_id": "HODLMM-DLMM6-20260709-002",
+      "status": "not_launched",
+      "opened_at": null,
+      "terminal_at": "2026-07-09T00:00:00.000Z",
+      "result": { "basis": "no_position_opened", "net_usd": 0, "realized": true },
+      "receipts": { "total": 1, "broadcast": 0, "success": 0, "abort": 0, "no_tx": 1 },
+      "report": "002/README.md",
+      "roster": "002/transaction-roster.md"
+    },
+    {
+      "number": "003",
+      "campaign_id": "HODLMM-DLMM6-20260709-003",
+      "status": "window_ended_residual_position_write_halted",
+      "opened_at": "2026-07-10T00:00:00.000Z",
+      "terminal_at": "2026-07-20T00:00:00.000Z",
+      "result": { "basis": "mark_to_market_vs_hold_after_gas", "net_usd": -0.66, "realized": false },
+      "receipts": { "total": 11, "broadcast": 10, "success": 9, "abort": 1, "no_tx": 1 },
+      "report": "003/README.md",
+      "roster": "003/transaction-roster.md"
+    },
+    {
+      "number": "004",
+      "campaign_id": "HODLMM-DLMM6-DRAFT-004",
+      "status": "draft_not_authorized",
+      "opened_at": null,
+      "terminal_at": null,
+      "result": null,
+      "receipts": { "total": 0, "broadcast": 0, "success": 0, "abort": 0, "no_tx": 0 },
+      "report": "004/README.md",
+      "roster": null
+    }
+  ]
+}

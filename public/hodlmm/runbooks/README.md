@@ -6,6 +6,12 @@ The operating loop is:
 
 Most cycles should end after `SCAN` or `DECIDE`. A write is exceptional.
 
+Detailed runbooks:
+
+- [Campaign entry](campaign-entry.md)
+- [Stuck or unknown transaction](stuck-transaction.md)
+- [Campaign closeout](campaign-closeout.md)
+
 ## Write gates
 
 Before wallet unlock or signing:

@@ -18,6 +18,7 @@ and read-only verification code.
 | [001](public/hodlmm/campaigns/001/README.md) | 2026-06-04 → 2026-07-10 | ≈ **−$34.20 vs hold** at the last comparable checkpoint | 88 success | Accounting closed by transition, not by zero-DLP exit; result is provisional |
 | [002](public/hodlmm/campaigns/002/README.md) | 2026-07-09 | **$0 gas, no position opened** | 0 | Proposal/dry-run only; one balance gate stopped before signing |
 | [003](public/hodlmm/campaigns/003/README.md) | 2026-07-10 → 2026-07-20 | **−$0.66 vs hold** at the 2026-07-20 mark | 9 success, 1 abort | Ended with residual DLP, out of range and write-halted; not a realized closeout |
+| [004](public/hodlmm/campaigns/004/README.md) | Draft | **No allocation** | 0 | Public design only; not authorized |
 
 Do **not** sum Campaigns 001 and 003. Campaign 003 inherited residual assets from Campaign 001, and
 neither campaign produced a clean zero-DLP closeout. This repo refuses to manufacture an aggregate.
@@ -31,6 +32,8 @@ neither campaign produced a clean zero-DLP closeout. This repo refuses to manufa
 5. [Runbooks](public/hodlmm/runbooks/README.md) — the safety loop and closeout standard.
 6. [Publication policy](PUBLICATION_POLICY.md) — the boundary between public evidence and private control.
 7. [Disclosure review](public/hodlmm/knowledge/disclosure-review-2026-07-20.md) — what was published, converted, or excluded.
+8. [Machine campaign catalog](public/hodlmm/campaigns/catalog.json) — terminal states and receipt counts, including the unauthorized Campaign 004 draft.
+9. [SHA-256 proof bundle](public/hodlmm/proof/README.md) — byte-level integrity for every published artifact.
 
 ## Reproduce the audit
 
@@ -38,6 +41,7 @@ neither campaign produced a clean zero-DLP closeout. This repo refuses to manufa
 npm install
 npm run audit:public
 npm test
+npm run verify:manifest
 npm run verify:ledger
 npm run live:position
 npm run monitor:public

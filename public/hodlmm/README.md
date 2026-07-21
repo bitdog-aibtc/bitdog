@@ -12,6 +12,9 @@ Bitflow `dlmm_6` STX/sBTC pool.
 5. [Runbooks](runbooks/README.md)
 6. [Disclosure review](knowledge/disclosure-review-2026-07-20.md)
 7. [Public schemas](schemas/)
+8. [dlmm_6 pool record](knowledge/pools/dlmm_6.md)
+9. [Self-analysis KPIs](specs/self-analysis-kpis.md)
+10. [Proof bundle integrity](proof/README.md)
 
 The public monitor is intentionally weaker than the private operational system: it reads public state,
 evaluates terminal gates, and can only return a hold, a halt, or a recommendation for a separately
