@@ -46,7 +46,7 @@ still has to satisfy the 5 STX floor after fresh fees, withdrawal output, and th
 | Campaign 003 boundary | **RECONCILED** | Campaign 003 is closed for new risk. Its `u1022` abort was not retried blindly, and the residual is explicitly assigned to this transition. |
 | Residual withdrawal preflight | **PASS** | The canonical multi-bin withdrawal passed a fresh read-only simulation; 42,901 DLP remains on-chain because no write is allowed while the market gates are unmet. |
 | 24-hour pool volume | **WAITING** | The latest entry check was US$3,581.32, below the US$10,000 minimum. No entry while the fresh 24-hour value remains below that threshold. |
-| Second confirmation | **PENDING** | A second fresh read must confirm the market and chain inputs immediately before any wallet access. |
+| Second confirmation | **PASS** | Two out-of-range reads were separated by more than 15 minutes; the second retained zero pending transactions and 0.1307% price divergence. |
 | Simulation and postconditions | **PARTIAL PASS** | Withdrawal simulation and the 120 STX prep-swap plan passed. The exact three-bin deposit simulation waits for the actual post-swap sBTC balance. |
 | Signer isolation | **DISARMED** | The wallet stays locked until every preceding gate passes in one fresh private execution scope. |
 
@@ -59,13 +59,13 @@ Campaign 004 can move from `WAITING_ENTRY` to `LIVE` only after all of the follo
 
 1. Campaign 003's residual withdrawal reaches a terminal chain result under the already reconciled boundary.
 2. The fresh 24-hour pool volume is at or above US$10,000.
-3. The second confirmation and simulations agree with the final plan.
+3. A final just-in-time read still agrees with the two completed confirmation scans and the simulations.
 4. The total marked LP input, including transitioned residual value, does not exceed US$40.
 5. The first Campaign 004 deposit reaches terminal `success` and receives a receipt with its tx hash,
    fee, role, and post-entry range.
 
-Until then, `opened_at` remains null. The [receipt roster](transaction-roster.md) contains one no-tx
-market-gate receipt, and the honest status is `armed_waiting_entry`: authorized terms, no transaction
+Until then, `opened_at` remains null. The [receipt roster](transaction-roster.md) contains two no-tx
+market-gate receipts, and the honest status is `armed_waiting_entry`: authorized terms, no transaction
 attempt, no txid, and no gas.
 
 Not financial advice. Public documentation is evidence, not transaction authority.

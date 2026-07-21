@@ -18,7 +18,7 @@ and read-only verification code.
 | [001](public/hodlmm/campaigns/001/README.md) | 2026-06-04 → 2026-07-10 | ≈ **−$34.20 vs hold** at the last comparable checkpoint | 88 success | Accounting closed by transition, not by zero-DLP exit; result is provisional |
 | [002](public/hodlmm/campaigns/002/README.md) | 2026-07-09 | **$0 gas, no position opened** | 0 | Proposal/dry-run only; one balance gate stopped before signing |
 | [003](public/hodlmm/campaigns/003/README.md) | 2026-07-10 → 2026-07-20 | **−$0.66 vs hold** at the 2026-07-20 mark | 9 success, 1 abort | Ended with residual DLP, out of range and write-halted; not a realized closeout |
-| [004](public/hodlmm/campaigns/004/README.md) | Authorized 2026-07-20; unopened | **US$40 total ceiling; US$0 moved** | 1 no-tx | Armed; residual preflight passed, waiting for volume ≥ US$10k and second confirmation |
+| [004](public/hodlmm/campaigns/004/README.md) | Authorized 2026-07-20; unopened | **US$40 total ceiling; US$0 moved** | 2 no-tx | Armed; two scans and residual preflight passed, waiting for volume ≥ US$10k |
 
 Do **not** sum Campaigns 001 and 003. Campaign 003 inherited residual assets from Campaign 001, and
 neither campaign produced a clean zero-DLP closeout. This repo refuses to manufacture an aggregate.
@@ -27,7 +27,7 @@ neither campaign produced a clean zero-DLP closeout. This repo refuses to manufa
 
 1. [The Honest Ledger](public/hodlmm/articles/the-honest-ledger.md) — methods, stack, failures, and what the numbers can and cannot prove.
 2. [Campaign index](public/hodlmm/campaigns/README.md) — charter and status for every campaign, including the one that never launched.
-3. [Complete receipt ledger](public/hodlmm/ledger/README.md) — 101 receipts, 98 emitted hashes, 97 successes, one mined abort, and three no-tx stops.
+3. [Complete receipt ledger](public/hodlmm/ledger/README.md) — 103 receipts, 98 emitted hashes, 97 successes, one mined abort, and five no-tx stops.
 4. [Lessons](public/hodlmm/knowledge/lessons.md) — failures converted into permanent operating rules.
 5. [Runbooks](public/hodlmm/runbooks/README.md) — the safety loop and closeout standard.
 6. [Publication policy](PUBLICATION_POLICY.md) — the boundary between public evidence and private control.

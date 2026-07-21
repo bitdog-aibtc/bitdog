@@ -28,9 +28,10 @@ test('armed campaign remains unopened and signer-disarmed while entry gates are 
   assert.equal(armed.limits.entry_gas_cap_stx, 0.25);
   assert.equal(armed.limits.halt_after_failed_write_branches, 1);
   assert.equal(armed.entry_gates.volume_24h_usd_minimum, 10000);
+  assert.equal(armed.entry_gates.second_confirmation, 'passed_2_of_2');
   assert.equal(armed.entry_gates.withdraw_simulation, 'passed');
   assert.equal(armed.entry_gates.signer, 'disarmed');
-  assert.deepEqual(armed.receipts, { total: 1, broadcast: 0, success: 0, abort: 0, no_tx: 1 });
+  assert.deepEqual(armed.receipts, { total: 2, broadcast: 0, success: 0, abort: 0, no_tx: 2 });
 });
 
 test('catalog refuses an aggregate result across overlapping campaign boundaries', () => {

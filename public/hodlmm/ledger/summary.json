@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-21T01:16:53.014Z",
-  "receipt_count": 102,
+  "generated_at": "2026-07-21T01:26:39.304Z",
+  "receipt_count": 103,
   "unique_txids": 98,
   "successful_txs": 97,
   "aborted_txs": 1,
-  "no_tx_receipts": 4,
+  "no_tx_receipts": 5,
   "campaigns": [
     {
       "campaign_id": "HODLMM-DLMM6-20260604-001",
@@ -32,11 +32,11 @@
     },
     {
       "campaign_id": "HODLMM-DLMM6-20260720-004",
-      "receipts": 1,
+      "receipts": 2,
       "broadcasts": 0,
       "successful_txs": 0,
       "aborted_txs": 0,
-      "no_tx_receipts": 1
+      "no_tx_receipts": 2
     }
   ]
 }
